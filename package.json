@@ -1,0 +1,19 @@
+{
+  "name": "dev_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/www.js",
+  "scripts": {
+    "dev": "nodemon bin/www.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
