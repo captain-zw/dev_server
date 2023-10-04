@@ -3,9 +3,9 @@ let MYSQL_CONFIG ={};
 MYSQL_CONFIG = {
     host:'localhost',
     user:'root',
-    password:'zw919399',
+    password:'1429897058',
     port:3306,
-    database:'blog'
+    database:'blogs'
 }
 
 module.exports={

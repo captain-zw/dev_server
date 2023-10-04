@@ -8,7 +8,7 @@ const handleBlogRoute = (req,res)=>{
     const method = req.method;
     const id = req.query.id;
     const blogData = req.body;
-    console.log('处理post数据6')
+    // console.log('处理post数据6')
     //  博客列表路由
     if(method==='GET'&&req.path==='/api/blog/list'){
         // const sql = `select * from blog`

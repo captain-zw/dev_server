@@ -1,5 +1,6 @@
 const handleBlogRoute = require('./src/routes/blog')
 const querystring = require('querystring')
+var urlencode = require('urlencode');
 
 // 处理post数据
 const getPostData = (req)=>{
@@ -19,7 +20,12 @@ const getPostData = (req)=>{
 
         let postData = '';
         req.on('data',(chunk)=>{
+            // chunk=encodeURI(chunk)
             postData+=chunk.toString();
+            // postData=encodeURI(postData)
+            postData=urlencode.parse(postData, {charset: 'UTF-8'}); // {nick: '苏千'}
+            // postData=postData.toString()
+            postData=JSON.stringify(postData)
             console.log('处理post数据7',postData)
         });
         console.log('处理post数据5',postData)
@@ -30,6 +36,7 @@ const getPostData = (req)=>{
             }
             console.log('处理post数据6')
             resolve(
+                // console.log('处理post数据11',JSON.parse(postData))
                 JSON.parse(postData)
             );
         })
@@ -40,6 +47,9 @@ const getPostData = (req)=>{
 const serverHandler = (req,res)=>{
     // 设置相应格式
     res.setHeader('Content-Type','application/json');
+    res.setHeader("Access-Control-Allow-Origin", "*");//设置跨域问题请求头
+    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");//设置跨域问题请求头
+    res.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");//设置跨域问题请求头
 
     // 获取path
     const url = req.url;
